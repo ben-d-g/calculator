@@ -42,7 +42,7 @@ Array.from(numbers).forEach((numButton) => {
 
 const ac = document.querySelector("#AC");
 ac.addEventListener("click", () => {
-    currentNum = "";
+    currentNum = "0";
     operationList = [];
     displayNumber.textContent = currentNum;
 });
