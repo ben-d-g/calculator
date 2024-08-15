@@ -1,17 +1,18 @@
-function add(a, b){
-    return a + b;
-}
-
-function subtract(a, b){
-    return a - b;
-}
-
-function multiply(a, b){
-    return a * b;
-}
-
-function divide(a, b){
-    return a / b;
+function operation(operationList){
+    switch(operationList[1]){
+        case "add":
+            return operationList[0] + operationList[2];
+            break;
+        case "subtract":
+            return operationList[0] - operationList[2];
+            break;
+        case "multiply":
+            return operationList[0] * operationList[2];
+            break;
+        case "divide":
+            return operationList[0] / operationList[2];
+            break;
+    }
 }
 
 let operationList = [];
