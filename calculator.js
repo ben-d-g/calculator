@@ -22,7 +22,7 @@ const displayNumber = document.querySelector("#displayNumber")
 //when an operation is selected, parse to int and add to operationList
 let currentNum = "0";
 
-let numbers = document.getElementsByClassName("number");
+const numbers = document.getElementsByClassName("number");
 Array.from(numbers).forEach((numButton) => {
     numButton.addEventListener("click", () => {
         console.log(numButton.id);
@@ -36,6 +36,7 @@ Array.from(numbers).forEach((numButton) => {
         
         //display currentNum
         displayNumber.textContent = currentNum;
+        console.log(currentNum)
     });
 });
 
@@ -61,3 +62,26 @@ point.addEventListener("click", () => {
         displayNumber.textContent = currentNum;
     }
 });
+
+const operations = document.getElementsByClassName("operation");
+Array.from(operations).forEach((operationButton) => {
+    operationButton.addEventListener("click", () => {
+        //operationList will either be empty or be of the form [number, "operation"]
+        if (operationList.length == 0){
+            operationList.push(Number(currentNum));
+            currentNum = "0";
+            displayNumber.textContent = currentNum;
+            operationList.push(operationButton.id);
+            console.log(operationList)
+        }
+        else{
+            //do operation
+            operationList.push(Number(currentNum));
+            currentNum = String(operation(operationList));
+            displayNumber.textContent = currentNum;
+            currentNum = 0;
+            operationList = [operation(operationList), operationButton.id];
+            console.log(operationList)
+        }
+    })
+})
