@@ -22,3 +22,13 @@ The calculator will be used in the following way:
 - [ ] Write calculator logic (runnable in console)
 - [ ] Migrate calculator to wireframe
 - [ ] Make CSS
+
+## Calculator Logic
+
+My plan with regards to the logic of the calculator is to store the series of buttons pressed in a string, `operationList`. For example, we may have:
+
+- `operationList = []                   //initialised as an empty string`
+- `operationList = [234]                //a number has been entered`
+- `operationList = [234, "add"]         //an operation has been selected`
+- `operationList = [234, "add", 876]    //a second number has been entered`
+- `operationList = []                   //"=" was pressed, 1110 is displayed`
