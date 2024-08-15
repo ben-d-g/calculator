@@ -2,27 +2,45 @@
     border: 1px solid red;
 }
 
-#calculator{
+body{
+    display: flex;
+    margin: 0;
+    height: 100%;
+    justify-content: center;
+}
+
+#calculatorFrame{
+
+    margin: 10%;
+    max-width: 50%;
+    max-height: 75%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    gap: 2px;
 }
 
 #buttons{
     display: flex;
     flex-direction: column;
+    gap: 2px;
 }
 
 .buttonRow{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 #display{
-    width: 400px;
-    height: 100px;
+    min-width: 400px;
+    width: 100%;
+    height: 150px;
 }
 
 .button{
-    width: 100px;
-    height: 100px;
+    min-width: 50px;
+    width: 22%;
+    aspect-ratio: 1 / 1;
+    
 }
