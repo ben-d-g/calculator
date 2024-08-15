@@ -85,3 +85,31 @@ Array.from(operations).forEach((operationButton) => {
         }
     })
 })
+
+const equals = document.querySelector("#equals");
+equals.addEventListener("click", () => {
+    if (operationList.length == 0){
+        displayNumber.textContent = currentNum;
+        currentNum = "0";
+    }
+    else{
+        operationList.push(Number(currentNum));
+        currentNum = String(operation(operationList));
+        displayNumber.textContent = currentNum;
+        operationList = [];
+        currentNum = "0";
+        console.log(operationList)
+    }
+});
+
+const plusMinus = document.querySelector("#plusMinus");
+plusMinus.addEventListener("click", () => {
+    if (currentNum.includes("-")){
+        currentNum = currentNum.slice(1);
+        displayNumber.textContent = currentNum;
+    }
+    else{
+        currentNum = "-" + currentNum;
+        displayNumber.textContent = currentNum
+    }
+})
