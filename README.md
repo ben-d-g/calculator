@@ -21,7 +21,7 @@ The calculator will be used in the following way:
 - [x] Create wireframe
 - [x] Write calculator logic (runnable in console)
 - [x] Migrate calculator to wireframe
-- [ ] Make CSS
+- [x] Make CSS
 
 ## Calculator Logic
 
