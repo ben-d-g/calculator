@@ -134,3 +134,9 @@ percent.addEventListener("click", () => {
     currentNum = String(0.01 * Number(currentNum));
     changeDisplayText(currentNum);
 });
+
+const backspace = document.querySelector("#backspace");
+backspace.addEventListener("click", () => {
+    currentNum = currentNum.slice(0, -1);
+    changeDisplayText(currentNum);
+})

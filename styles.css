@@ -81,6 +81,10 @@ body{
     background-color: rgb(182, 118, 0);
 }
 
+#backspace{
+    background-color: rgb(182, 118, 0);
+}
+
 #AC, #plusMinus, #percent{
     background-color: rgb(36, 36, 36);
 }
