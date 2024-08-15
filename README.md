@@ -19,8 +19,8 @@ The calculator will be used in the following way:
 ## Project Timeline
 
 - [x] Create wireframe
-- [ ] Write calculator logic (runnable in console)
-- [ ] Migrate calculator to wireframe
+- [x] Write calculator logic (runnable in console)
+- [x] Migrate calculator to wireframe
 - [ ] Make CSS
 
 ## Calculator Logic

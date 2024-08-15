@@ -110,6 +110,12 @@ plusMinus.addEventListener("click", () => {
     }
     else{
         currentNum = "-" + currentNum;
-        displayNumber.textContent = currentNum
+        displayNumber.textContent = currentNum;
     }
-})
+});
+
+const percent = document.querySelector("#percent");
+percent.addEventListener("click", () => {
+    currentNum = String(0.01 * Number(currentNum));
+    displayNumber.textContent = currentNum;
+});
