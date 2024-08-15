@@ -15,6 +15,21 @@ function operation(operationList){
     }
 }
 
+function changeDisplayText(udpate){
+    if (udpate.length > 10){
+        if (Number(udpate) > 999999999){
+            displayNumber.textContent = "ERROR";
+            currentNum = 0;
+        }
+        else{
+            displayNumber.textContent = udpate.slice(0,10);
+        }
+    }
+    else{
+        displayNumber.textContent = udpate;
+    }
+}
+
 let operationList = [];
 const displayNumber = document.querySelector("#displayNumber")
 
@@ -35,7 +50,7 @@ Array.from(numbers).forEach((numButton) => {
         
         
         //display currentNum
-        displayNumber.textContent = currentNum;
+        changeDisplayText(currentNum);
         console.log(currentNum)
     });
 });
@@ -44,7 +59,7 @@ const ac = document.querySelector("#AC");
 ac.addEventListener("click", () => {
     currentNum = "0";
     operationList = [];
-    displayNumber.textContent = currentNum;
+    changeDisplayText(currentNum);
 });
 
 
@@ -52,14 +67,14 @@ const point = document.querySelector("#point");
 point.addEventListener("click", () => {
     if (currentNum.slice(-1) == "."){
         currentNum = currentNum.slice(0, -1);
-        displayNumber.textContent = currentNum;
+        changeDisplayText(currentNum);
     }
     else if (currentNum.includes(".")){
-        displayNumber.textContent = currentNum;
+        changeDisplayText(currentNum);
     }
     else{
         currentNum += "."
-        displayNumber.textContent = currentNum;
+        changeDisplayText(currentNum);
     }
 });
 
@@ -70,7 +85,7 @@ Array.from(operations).forEach((operationButton) => {
         if (operationList.length == 0){
             operationList.push(Number(currentNum));
             currentNum = "0";
-            displayNumber.textContent = currentNum;
+            changeDisplayText(currentNum);
             operationList.push(operationButton.id);
             console.log(operationList)
         }
@@ -78,7 +93,7 @@ Array.from(operations).forEach((operationButton) => {
             //do operation
             operationList.push(Number(currentNum));
             currentNum = String(operation(operationList));
-            displayNumber.textContent = currentNum;
+            changeDisplayText(currentNum);
             currentNum = 0;
             operationList = [operation(operationList), operationButton.id];
             console.log(operationList)
@@ -89,13 +104,13 @@ Array.from(operations).forEach((operationButton) => {
 const equals = document.querySelector("#equals");
 equals.addEventListener("click", () => {
     if (operationList.length == 0){
-        displayNumber.textContent = currentNum;
+        changeDisplayText(currentNum);
         currentNum = "0";
     }
     else{
         operationList.push(Number(currentNum));
         currentNum = String(operation(operationList));
-        displayNumber.textContent = currentNum;
+        changeDisplayText(currentNum);
         operationList = [];
         currentNum = "0";
         console.log(operationList)
@@ -106,16 +121,16 @@ const plusMinus = document.querySelector("#plusMinus");
 plusMinus.addEventListener("click", () => {
     if (currentNum.includes("-")){
         currentNum = currentNum.slice(1);
-        displayNumber.textContent = currentNum;
+        changeDisplayText(currentNum);
     }
     else{
         currentNum = "-" + currentNum;
-        displayNumber.textContent = currentNum;
+        changeDisplayText(currentNum);
     }
 });
 
 const percent = document.querySelector("#percent");
 percent.addEventListener("click", () => {
     currentNum = String(0.01 * Number(currentNum));
-    displayNumber.textContent = currentNum;
+    changeDisplayText(currentNum);
 });
